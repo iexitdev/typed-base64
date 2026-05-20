@@ -1,0 +1,63 @@
+{
+  "name": "typed-base64",
+  "version": "0.1.0",
+  "description": "Typed Base64, Base64URL, byte helpers, and abab-compatible atob/btoa exports.",
+  "type": "module",
+  "license": "MIT",
+  "author": "exitdev",
+  "homepage": "https://github.com/iexitdev/typed-base64#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iexitdev/typed-base64.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iexitdev/typed-base64/issues"
+  },
+  "keywords": [
+    "base64",
+    "base64url",
+    "atob",
+    "btoa",
+    "abab",
+    "typescript",
+    "migration",
+    "replacement",
+    "deprecated",
+    "zero-dependencies"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean",
+    "test": "vitest run test",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "verify": "npm run typecheck && npm test && npm run build && npm pack --dry-run",
+    "prepublishOnly": "npm run verify"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
